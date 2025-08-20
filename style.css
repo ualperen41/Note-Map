@@ -1,0 +1,232 @@
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* Değişkenler */
+:root {
+  --primary-color: #2563eb;
+  --secondary-color: #1e293b;
+  --accent-color: #3b82f6;
+  --success-color: #10b981;
+  --danger-color: #ef4444;
+  --warning-color: #f59e0b;
+  --background-overlay: rgba(30, 41, 59, 0.85);
+  --background-overlay-hover: rgba(30, 41, 59, 0.95);
+  --card-background: rgba(51, 65, 85, 0.9);
+  --border-radius: 12px;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  --shadow-lg: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  --border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/*  Css Sıfırlama */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+
+/* Harita */
+#map {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Global Stiller */
+body {
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+}
+
+/* Harita */
+#map {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Aside */
+aside {
+  display: none;
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  z-index: 1000;
+  background: var(--background-overlay);
+  -webkit-backdrop-filter: blur(10px);
+  border: var(--border);
+  color: white;
+  overflow: hidden;
+  width: 320px;
+  height: calc(100vh - 40px);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+aside:hover {
+  background: var(--background-overlay-hover);
+  transform: translateY(-2px);
+}
+
+aside header {
+  font-family: "Indie Flower", cursive;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--card-background);
+  padding: 16px 20px;
+  margin: 24px 24px 0 24px;
+  border-radius: var(--border-radius);
+  border: var(--border);
+  letter-spacing: 2px;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s;
+}
+
+aside header h1 {
+  font-size: 24px;
+  flex: 1;
+  font-weight: 600;
+  background: linear-gradient(135deg, #60a5fa, #34d399);
+  -webkit-background-clip: text;
+  background-clip: transparent;
+}
+
+aside header button {
+  background: none;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: rotate(180deg);
+  }
+  i {
+    font-size: 18px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s;
+    color: #94a3b8;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+  }
+}
+
+/* Form */
+aside form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 16px 0;
+  padding: 24px;
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    label {
+      font-size: 14px;
+      font-weight: 500;
+      color: #e2e8f0;
+      margin-bottom: 4px;
+    }
+
+    input,
+    select {
+      padding: 12px 16px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      font-size: 14px;
+      transition: all 0.3s;
+      backdrop-filter: blur(10px);
+
+      &::placeholder {
+        color: #94a3b8;
+      }
+
+      &:focus {
+        border-color: var(--accent-color);
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        background: rgba(255, 255, 255, 0.15);
+      }
+    }
+
+    .error-msg {
+      font-size: 12px;
+      color: var(--danger-color);
+      margin-top: 4px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      display: none;
+      &.show {
+        display: block;
+      }
+    }
+  }
+
+  .buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+
+    button {
+      flex: 1;
+      cursor: pointer;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    button[type="submit"] {
+      background: linear-gradient(
+        135deg,
+        var(--primary-color, var(--accent-color))
+      );
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+        background: linear-gradient(135deg, #1d4ed8, #2563eb);
+      }
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+      }
+    }
+
+    button:first-child {
+      background: rgba(107, 114, 128, 0.8);
+      color: white;
+      border: 1px solid rgba(75, 85, 99, 0.2);
+
+      &:hover {
+        background: rgba(75, 85, 99, 0.9);
+        transform: translateY(-1px);
+      }
+    }
+  }
+}
