@@ -66,6 +66,17 @@ aside {
   box-shadow: var(--shadow-lg);
   cursor: pointer;
   transition: all 0.2s;
+
+&.add {
+  height: 500px;
+
+  form {
+    display: flex;
+  }
+  ul {
+    display: none;
+  }
+}
 }
 
 aside:hover {
