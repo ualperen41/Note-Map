@@ -46,7 +46,8 @@ body {
 @keyframes collapseSidebar {
   from {
     height: calc(100vh - 40px);
-  } to {
+  }
+  to {
     height: 120px;
   }
 }
@@ -54,7 +55,8 @@ body {
 @keyframes expandSidebar {
   from {
     height: calc(100vh - 40px);
-  }to {
+  }
+  to {
     height: 500px;
   }
 }
@@ -63,7 +65,8 @@ body {
   from {
     opacity: 0;
     transform: translateY(20px);
-  } to {
+  }
+  to {
     opacity: 1;
     transform: translateY(0px);
   }
@@ -71,7 +74,8 @@ body {
 @keyframes rotateArrow {
   from {
     transform: rotate(0deg);
-  } to {
+  }
+  to {
     transform: rotate(180deg);
   }
 }
@@ -81,9 +85,13 @@ body {
   height: 100vh;
 }
 
+.popup {
+  text-align: center;
+  font-weight: 500;
+}
+
 /* Aside */
 aside {
-
   position: fixed;
   left: 20px;
   top: 20px;
@@ -100,29 +108,29 @@ aside {
   cursor: pointer;
   transition: all 0.2s;
 
-&.add {
-  height: 510px;
-  animation: expandSidebar 0.3s ease-out;
+  &.add {
+    height: 510px;
+    animation: expandSidebar 0.3s ease-out;
 
-  form {
-    display: flex;
-    animation: fadeInUp 0.3s ease-out;
-  }
-  
-  ul {
-    display: none;
-  }
-}
+    form {
+      display: flex;
+      animation: fadeInUp 0.3s ease-out;
+    }
 
-&.hide {
-  height: 120px;
-  animation: collapseSidebar 0.3s ease-out;
-
-  #arrow {
-    animation: rotateArrow 0.6s ease-out;
-    transform: rotate(180deg);
+    ul {
+      display: none;
+    }
   }
-}
+
+  &.hide {
+    height: 120px;
+    animation: collapseSidebar 0.3s ease-out;
+
+    #arrow {
+      animation: rotateArrow 0.6s ease-out;
+      transform: rotate(180deg);
+    }
+  }
 }
 
 aside:hover {
@@ -179,7 +187,7 @@ aside header button {
 
 /* Form */
 aside form {
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 24px;
   margin: 16px 0;
@@ -285,5 +293,36 @@ aside form {
         transform: translateY(-1px);
       }
     }
+  }
+}
+
+/* List */
+aside ul {
+  padding: 24px;
+  height: calc(100% - 120px);
+  overflow-y: auto;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+li {
+  background: var(--card-background);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: var(--border-radius);
+  border: var(--border);
+  transition: all 0.3s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
   }
 }
