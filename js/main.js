@@ -1,4 +1,4 @@
-import { personIcon } from "./ui.js";
+import { ui, personIcon } from "./ui.js";
 
 //* Global Değişkenler
 const STATE = {
@@ -10,6 +10,7 @@ const STATE = {
 // Kullanıcının konumuna göre hatirayı yükle
 window.navigator.geolocation.getCurrentPosition(
   // kullanıcı izin verirse onun olduğu konumda yükle
+  
   (e) => loadMap([e.coords.latitude, e.coords.longitude]),
   () =>
 
@@ -54,7 +55,7 @@ function onMapClick(e) {
 STATE.clickedCoords =[e.latlng.lat, e.latlng.lng];
 
 // aside alanındaki formu aktif et
-
+ui.aside.classList.add("add");
 // aside alanındaki başlığı güncelle
 
 }
