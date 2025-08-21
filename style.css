@@ -108,6 +108,7 @@ aside {
     display: flex;
     animation: fadeInUp 0.3s ease-out;
   }
+  
   ul {
     display: none;
   }
