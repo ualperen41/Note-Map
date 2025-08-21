@@ -1,4 +1,4 @@
-import ui ,{  personIcon } from "./ui.js";
+import { ui , personIcon } from "./ui.js";
 
 //* Global Değişkenler
 const STATE = {
