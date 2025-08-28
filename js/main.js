@@ -169,8 +169,19 @@ function renderNoteCards(notes) {
 }
 
 const deleteNote = (id) => {
-  console.log(id);
+  // kullanıcadan onay vermzse dur
+  if (!confirm("Notu silmek istediğinizden emin misiniz?")) return;
+  // id'si bilinen note'u diziden kaldır
+  STATE.notes = STATE.notes.filter((note) => note.id !== id);
+  // localstrage'ı güncelle
+  localStorage.setItem("notes", JSON.stringify(STATE.notes));
+  // arayüzü güncelle
+  renderMarker(STATE.notes);
+  renderNoteCards(STATE.notes);
 };
 const flyToNote = (id) => {
-  console.log(id);
+  //tıklanılan notun verilerine eriş
+  const note = STATE.notes.find((note) => note.id === id);
+  // haritada göster
+  STATE.map.flyTo(note.coords, 15);
 };
